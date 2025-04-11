@@ -373,6 +373,8 @@ func (b *Bot) handleMedia(c Context) bool {
 	)
 
 	switch {
+	case m.Story != nil:
+		fired = b.handle(OnStory, c)
 	case m.Photo != nil:
 		fired = b.handle(OnPhoto, c)
 	case m.Voice != nil:
